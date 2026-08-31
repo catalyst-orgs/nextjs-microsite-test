@@ -1,16 +1,16 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: test-nextjs
-  namespace: test-nextjs
+  name: nextjs-microsite-test
+  namespace: nextjs-microsite-test
   labels:
-    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/name: nextjs-microsite-test
     app.kubernetes.io/managed-by: platform-engineering
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: test-nextjs
+    name: nextjs-microsite-test
   minReplicas: 1
   maxReplicas: 2
   metrics:
