@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-nextjs
-  namespace: test-nextjs
+  name: nextjs-microsite-test
+  namespace: nextjs-microsite-test
   labels:
-    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/name: nextjs-microsite-test
     app.kubernetes.io/version: latest
     app.kubernetes.io/managed-by: platform-engineering
     environment: development
@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: test-nextjs
+      app.kubernetes.io/name: nextjs-microsite-test
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,10 +21,10 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: test-nextjs
+        app.kubernetes.io/name: nextjs-microsite-test
         environment: development
     spec:
-      serviceAccountName: test-nextjs
+      serviceAccountName: nextjs-microsite-test
       terminationGracePeriodSeconds: 30
       securityContext:
         runAsNonRoot: true
@@ -34,7 +34,7 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-        - name: test-nextjs
+        - name: nextjs-microsite-test
           image: ghcr.io/catalyst-orgs/nextjs-microsite-test:latest
           imagePullPolicy: Always
           ports:
