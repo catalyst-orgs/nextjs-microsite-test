@@ -25,6 +25,8 @@ spec:
         environment: development
     spec:
       serviceAccountName: nextjs-microsite-test
+      imagePullSecrets:
+        - name: ghcr-pull
       terminationGracePeriodSeconds: 30
       securityContext:
         runAsNonRoot: true
