@@ -38,7 +38,7 @@ spec:
       containers:
         - name: nextjs-microsite-test
           image: ghcr.io/catalyst-orgs/nextjs-microsite-test:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 3000
