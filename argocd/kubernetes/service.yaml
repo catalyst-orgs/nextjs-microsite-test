@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-nextjs
+  namespace: test-nextjs
+  labels:
+    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/managed-by: platform-engineering
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: test-nextjs

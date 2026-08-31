@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-nextjs
+  description: 
+  annotations:
+    github.com/project-slug: catalyst-orgs/nextjs-microsite-test
+  tags:
+    - nextjs
+    - react
+    - frontend
+  links:
+    - url: https://
+      title: Application URL
+      icon: dashboard
+spec:
+  type: website
+  lifecycle: production
+  owner: 
+  system: platform-services
