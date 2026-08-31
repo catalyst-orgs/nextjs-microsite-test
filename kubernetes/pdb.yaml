@@ -1,13 +1,13 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: test-nextjs
-  namespace: test-nextjs
+  name: nextjs-microsite-test
+  namespace: nextjs-microsite-test
   labels:
-    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/name: nextjs-microsite-test
     app.kubernetes.io/managed-by: platform-engineering
 spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: test-nextjs
+      app.kubernetes.io/name: nextjs-microsite-test
