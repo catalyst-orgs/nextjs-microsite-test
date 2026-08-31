@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-nextjs
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/part-of: platform-services
+    environment: development
+  annotations:
+    argocd.argoproj.io/sync-wave: "30"
+spec:
+  project: applications
+  source:
+    repoURL: https://github.com/catalyst-orgs/nextjs-microsite-test
+    targetRevision: main
+    path: kubernetes
+    helm:
+      valueFiles:
+        - values-development.yaml
+  destination:
+    server: 
+    namespace: test-nextjs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true

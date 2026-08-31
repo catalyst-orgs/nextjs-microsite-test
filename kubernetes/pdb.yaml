@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: test-nextjs
+  namespace: test-nextjs
+  labels:
+    app.kubernetes.io/name: test-nextjs
+    app.kubernetes.io/managed-by: platform-engineering
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: test-nextjs
